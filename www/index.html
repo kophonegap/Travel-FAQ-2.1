@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+	
+/**
+* Author,email :     Aldrin Rasdas , arasdas@coca-cola.com
+* Date Create  :     April, 2014
+* Description  :     modified OOB file from phonegap project
+*
+* REVISION HISTORY
+*
+* Author,email :	Raymund Niiconi , niconi@coca-cola.com
+* Date Revised :	April, 2016
+* Description  :	modified UI, process
+*
+**/
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />        
+		
+        <title>Travel FAQ</title>
+
+        <link rel="stylesheet" href="jquery.mobile.theme-1.4.2.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/themes/CocaColaRed.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" type="text/css"/>
+        <link rel="stylesheet" href="jquery.mobile.structure-1.4.2.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/custom.css" type="text/css"/>
+        <script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="jquery.mobile-1.4.2.min.js" type="text/javascript"></script>     
+		
+    </head>
+    <body>
+		<div id="main" data-role="page">
+       <!-- <div id="status-bar" class="hidden"></div>-->
+			<div data-role="header" data-position="fixed" data-theme="b" id="header"  data-tap-toggle="false">        
+				<!-- the coca-cola logo -->
+			 <div class="page-header" id="titlebar"></div>
+             <div class="ui-navbar top-ui-navbar ui-corner-all">
+				<a class="nav-icon ui-btn ui-btn-left ui-icon-grid ui-btn-icon-notext ui-corner-all" onclick="appUI.leftHeaderButtonClick()" data-icon="grid" data-iconpos="notext" data-direction="reverse" id="leftHeaderButton">Countries</a>
+				<a class="nav-icon ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all ui-btn-right" href="#optionsPanel" data-icon="gear" data-iconpos="notext">Options</a>            
+				
+				
+				<!-- the bar below the logo -->
+				<div class="ui-grid-b" style="height:0px;">
+					<div class="ui-block-a"></div>
+					<div class="ui-block-b" style="text-align: center;"><div style="margin-top:0px;"></div></div>
+					<div class="ui-block-c" align="right"></div>
+				</div>  
+                
+                </div>               
+			</div>
+			
+			<!-- content area, dynamic -->
+			<div data-role="content" id="content" class="content-area" >
+                <div class="ui-grid-a" style="padding:5px;padding-bottom:0px;">
+                    <div class="ui-block-a country-list-container" id="listPanelLandscapeHolder">
+                        <div id="listFilterLS" class="country-list-filter-landscape"></div>    	                    	
+                        <div id="listPanelLandscape">
+                            <!-- country list --> 
+                        </div>                    
+                    </div>
+                    <div class="ui-block-b detail-area-container" id="contentHolder">        
+                        <!-- details area -->    
+                        <div class="ui-grid-b ui-bar country-detail-header" id="selected_country_header">
+                            <div class="ui-block-a" style="width:45px;">
+                                <div class="country-icon" id="country_flag"></div>
+                            </div> 
+                            <div class="ui-block-b" style="width:80%">
+                                <div class="country-detail-header-region" id="selected_country_region"></div>
+                                <div class="country-detail-header-name" id="selected_country_name"></div>        
+                            </div>
+                        </div>                    
+                        
+                        <div id="details" class="detail-area"></div> 
+                        <div id="currentCountry" data-country-code="" style="display:none;"></div>                                
+                    </div>
+                </div>
+            
+				<!-- when no local data is found -->       
+				<div id="no_data" style="display:none;margin:50px;">     
+					<div class="ui-bar-b">
+						<div class="nodata-found">
+							<b>No offline data found!</b><br><br>Kindly sync with server to get the latest Travel FAQ data.<br><br>
+							<a href="javascript:appUI.initiateDataUpdate();" class="ui-btn ui-btn-corner-all ui-btn-a ui-btn-inline">Update Now</a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- when geo country and default country data is not found -->            
+				<div id="no_country_data" style="display:none;margin:50px;" >
+					<div class="ui-bar-b">
+						<div class="nodata-found">
+							<b>Current or default country data not found.</b><br><br>Kindly select a country from the list.<br><br>
+						</div>
+					</div>
+				</div>            
+			</div>    
+			<!-- options panel -->
+			<div data-role="panel" id="optionsPanel" data-position="right" data-display="overlay" data-dismissible="true" class="options-panel" data-position-fixed="true">
+            
+				<div data-role="header" data-theme="b">            	
+					<h4>OPTIONS</h4>                
+					<!-- the line below is hidden from UI. it is here just to align the same button to the right -->
+                    <div class="ui-navbar ui-corner-all">
+					<a class="ui-btn ui-btn-left ui-icon-carat-r ui-btn-icon-notext ui-corner-all" href="#optionsPanel" data-icon="carat-r" data-iconpos="notext" data-direction="reverse">Options</a>
+					<a class="nav-icon ui-btn ui-btn-left ui-icon-arrow-r ui-btn-icon-notext ui-corner-all" href="#optionsPanel" data-icon="arrow-r" data-iconpos="notext" data-direction="reverse" style="display:none;">Options</a>
+				</div>
+                </div>
+				<div data-role="content" class="options-panel-content">
+                
+                
+					<ul data-role="listview" id="popupMenuItems">
+						<li data-icon="true"><a data-transition="flip" class="ui-btn ui-shadow ui-icon-cloud ui-btn-icon-right" data-icon="cloud"  onClick="appUI.closeMenu()" href="javascript:appUI.initiateDataUpdate();">Update...</a></li>            
+						<li data-icon="true"><a data-transition="flip" class="ui-btn ui-shadow ui-icon-info ui-btn-icon-right" data-icon="info" onClick="appUI.closeMenu();appUI.popAbout();" href="#">About...</a></li>
+						<!-- <li data-icon="false"><a data-transition="flip" onClick="appUI.closeMenu();appUI.confirmExit();" href="#">Exit...</a></li> -->
+					</ul>
+				</div>         
+			</div>      
+			
+			<!-- list panel -->
+			<div data-role="panel" id="listPanel" data-position="left" data-display="overlay" data-dismissible="true" class="options-panel" data-position-fixed="true">
+				<div data-role="header" data-theme="b">
+                <h4>REGIONS</h4> 
+                <div class="ui-navbar ui-corner-all">
+					<a class="nav-icon ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext ui-corner-all" href="#listPanel" data-icon="carat-l" data-iconpos="notext">Close</a>
+					<a class="nav-icon ui-btn ui-btn-right ui-icon-location ui-btn-icon-notext ui-corner-all" href="#" onclick="appUI.gotoCurrentLocation();" data-icon="location" data-iconpos="notext">Current Location</a>
+                    </div>
+					       					
+				</div>  
+                <div id="listFilter" style="display:none;padding:0px;margin:0px;"></div>
+				<div class="country-list-holder-portrait" id="listContainer">
+					<ul data-role="listview" data-autodividers="true"  data-filter="true" data-inset="true" id="allCountries" style="padding-top:0px;margin-right:0px;">
+					</ul>            
+				</div>      
+			</div>              
+			
+			<div data-role="footer" data-position="fixed" data-theme="b" id="footer" data-tap-toggle="false">
+				<div class="footer-text">INTERNAL USE ONLY</div>
+				<div class="footer-text">&copy; Copyright 2016. The Coca-Cola Company</div>
+			</div>      
+		</div> 
+
+		<!-- download progress popup -->
+		<div data-theme="b" data-role="popup" id="updateProgressDialog" data-dismissible="false" style="width:250px;">
+			<div data-role="header" class="ui-corner-top">
+				<h1>Status</h1>
+			</div>    
+			<center>        	
+				<img src="images/icons/spinner_red.gif" style="height:30px;weight:30px;margin-top:10px;">
+				<div style="margin-left:10px;margin-right:10px;" id="updateText">Update in progress. Please wait...</div>
+				<a href="#" data-role="button" style="width:80px;" id="updateCancelBtn">Cancel</a>
+			</center>
+		</div>
+		
+		<!-- about popup -->
+		<div data-theme="b" data-role="popup" id="aboutDialog" data-dismissible="false" style="width:250px;">
+			<div data-role="header" class="ui-corner-top">
+				<h1>About</h1>
+			</div>    
+			<center>        	
+	            <h2 style="margin-left:10px;margin-right:10px;margin-top:10px;font-weight:bold;" id="appName">Travel FAQ</h2>
+				<div style="margin-left:10px;margin-right:10px;margin-top:10px;font-weight:bold;" id="aboutVersion">Version 2.1</div>
+				<div style="margin-left:10px;margin-right:10px;margin-top:5px;">&copy; Copyright 2016</div>
+				<div style="margin-left:10px;margin-right:10px;margin-top:5px;font-weight:bold;">The Coca-Cola Company</div>            
+				<div style="margin-left:10px;margin-right:10px;margin-top:5px;">All rights reserved</div>            
+				<a href="#" data-role="button" onclick="$('#aboutDialog').popup('close');appUI.blocked=false;" style="width:80px;" >OK</a>
+			</center>
+		</div>  
+		
+		<div style="display:none;" class="device-type" id="deviceType">         
+		 
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>  
+		<script type="text/javascript" src="js/utils.js"></script>        
+		<script type="text/javascript" src="js/remote_store.js"></script>  
+		<script type="text/javascript" src="js/local_store.js"></script>  
+		<script type="text/javascript" src="js/geocoding.js"></script>  
+        
+		<script type="text/javascript" src="js/ui.js"></script> 
+        <script type="text/javascript" src="js/sidemenu.js"></script> 
+		<script type="text/javascript" src="js/index.js"></script>  
+			 
+		<script type="text/javascript">
+			$(document).bind('pageinit', function(event) {
+				app.initialize();		
+			});
+		</script>
+    </body>
+</html>
