@@ -12,6 +12,57 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.battery-status": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.contacts": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.device-motion": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.device-orientation": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.globalization": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.media": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.media-capture": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
+        },
+        "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "com.ko.travelfaq"
         }
     },
     "dependent_plugins": {}
