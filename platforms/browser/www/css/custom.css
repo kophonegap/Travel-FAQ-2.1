@@ -1,0 +1,355 @@
+/**
+* Author,email :     Aldrin Rasdas , arasdas@coca-cola.com
+* Date Create  :     April, 2014
+* Description  :     Contains custom CSS used in UI
+*
+* REVISION HISTORY
+*
+* Author,email :
+* Date Revised :
+* Description  :
+*
+**/
+
+@charset "utf-8";
+/* CSS Document */
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
+*/
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:300,100,400,700); */
+
+@import "fonts/roboto/roboto-400-500.css";
+
+@import "fontawesome/font-awesome.min.css";
+
+/* #allCountries .ui-listview-filter:nth-child(n+2) {
+    display : none;
+}*/
+.hidden {
+	display: block;
+}
+
+.showup {
+	display: block;
+}
+
+html, body {
+	font-family:"Roboto", sans-serif;
+	font-weight:400;
+}
+
+/*
+#allCountries li, #allCountries li li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+*/
+
+#status-bar {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:20px;
+	background-color:#FFF;
+	z-index:200001;
+}
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
+    border-style: solid;
+	
+}
+
+
+div#details.detail-area div.ui-collapsible-set.ui-group-theme-b.ui-corner-all div.ui-collapsible.ui-collapsible-inset.ui-corner-all.ui-collapsible-themed-content.ui-collapsible-collapsed {
+	border:none;
+}
+
+.ui-collapsible-inset .ui-collapsible-heading .ui-btn {
+    border:1px solid rgba(255,255,255,0.75);
+	margin-top:2px;
+}
+
+.ui-btn, label.ui-btn, .nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-btn-icon-notext.ui-corner-all{
+    border-style: solid;
+    border-width: 2px;
+}
+
+nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-icon-carat-r.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-left.ui-icon-carat-l.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-right.ui-icon-location.ui-btn-icon-notext.ui-corner-all {
+	top:20px;
+	border-style: solid;
+    border-width: 2px;
+}
+
+img.tfq-logo {
+	width:150px;
+	color:#fff;
+}
+
+.nav-icon {
+		color:#fff;
+		
+}
+
+.detail-content {
+		 border-size:3px !important;
+	}	
+	
+#loaderspin {
+background-image:url("../images/loader.svg"); 
+width:30px;
+height:30px;
+}
+
+.ui-header {
+    height: 60px;
+    left: 0;
+    right: 0;
+	padding-top:0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.ui-header-fixed {
+    height: 50px;
+    left: 0;
+    position: fixed;
+    right: 0;
+	top:0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.ui-footer {
+    border-width: 0px !important;
+    border-style:none;
+    position: relative;
+}
+
+
+/**************/
+.ui-listview > .ui-li-divider, .ui-li-divider.ui-bar-inherit.ui-first-child {
+    padding-left: 0.5em;
+	background-color:rgba(239,24,33,1) !important;
+	color:#eee;
+	font-size:1.2em;
+	text-shadow:0  1px  0  #333; 
+}
+.inlineIcon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+/**************/
+
+#allCountries li{
+	background-color:rgba(204,0,9,0.9) !important;
+	background-image:url("../images/icons-svg/carat-d-white.svg");
+	background-repeat:no-repeat;
+	background-position:center right 10px;
+	display:block;
+}
+
+
+
+
+.page-header {
+    background-image: url("../images/tfq-logo.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 3em;
+    margin-top: 4px;
+}
+
+.ui-navbar.top-ui-navbar {
+    max-width: 100%;
+    position: relative;
+    top: -50px;
+}
+
+.detail-icon {
+	vertical-align:middle;
+	width:30px;
+	height:30px;
+	margin-right:5px;
+}
+
+.ui-panel-inner {
+	padding:0 !important;
+}
+
+.options-panel {
+	background-color:#ECECEC !important;
+	/*width:20em;*/
+}
+
+.options-panel-content {
+	margin: 0px 0px 0px 0px;
+}
+
+.footer-text {
+	font-size:8pt;
+	font-weight:bold;
+	text-align:center;
+}
+
+.ui-filterable {
+	margin:0px;
+	padding:0px;
+	padding-right:5px;
+	padding-left:0px;
+}
+.country-icon {
+	width:50px;
+	height:50px;
+	vertical-align:middle;
+	border-style:none;
+	border-width:0px;
+	background-position:center;
+	background-size:contain;
+	background-repeat:no-repeat;
+}
+.country-detail-header-region {
+	margin-left:10px;
+	margin-top:8px;
+	font-size:10pt;
+	font-weight:bold;
+	color:#1F1D1D;	
+}
+
+.country-detail-header-name {
+	margin-left:10px;
+	font-size:13pt;
+	font-weight:bold;
+	color:black;
+}
+
+.nodata-found {
+	text-align:center;
+	font-size:12pt;
+	padding-bottom:30px;
+	padding-top:30px;
+}
+
+.content-area {
+	padding:0px;
+	border: none;
+}
+
+#main {
+	background-image:url("../images/background.png"); 
+	background-position:center center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	padding:0px;
+	border: none;
+}
+
+.content-table {
+	width:100%;
+	padding:5px;
+	margin:0px;
+	border:none;
+}
+
+.detail-area {
+	display:none;
+	overflow:scroll;
+	border:none;
+	margin:0px;
+	padding:0px;
+	-webkit-overflow-scrolling: touch;
+}
+
+.detail-header {
+	background:rgba(204,0,9,0.9) !important;
+	border:0px !important;
+}
+
+.country-detail-header {
+	background-color:white;
+	border:solid #C9686A 1px;
+	display:none;
+}
+
+.country-list-holder-portrait {
+	overflow:scroll;
+	height:10px;
+}
+
+.country-list-filter-landscape {
+	padding:0px;
+	margin:0px;
+	width:100%;
+	display:none;
+}
+
+.ui-show-map-container {
+	margin-top:15px;
+	font-size:11pt;
+}
+
+a {
+	text-decoration:none;
+}
+
+.detail-item {
+	white-space: normal !important;
+}
+
+@media only screen and (max-width: 47em) {
+	/* smartphone */
+  .device-type {
+	  width:1px;
+  }	
+  #status-bar {
+	  display:block;
+  }
+
+}
+
+@media only screen and (min-width: 48em) {
+	/* tablet */
+  .device-type {
+	  width:2px;
+  }
+  
+  
+	.nav-icon {
+		height:33px;
+		width: 33px;
+	}  
+	
+	.detail-header {
+		font-size:16pt;
+		font-weight:bold;
+	}
+	
+	.detail-content {
+		font-size:12pt;
+	}		
+}
+
+#footer {
+	background-color: rgba(204, 0, 9, 0);
+    border-color: transparent;
+	font-weight:100;
+}
+
+.footer-text {
+	font-weight:100;
+}
+
+.country-list-container {
+	border:none;
+	display:none;
+}
+
+.detail-area-container {
+	border:none;		
+}
+
+::-webkit-scrollbar {
+    display:none;
+}
